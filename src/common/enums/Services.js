@@ -1,0 +1,6 @@
+const SERVICES = {
+    GITHUB: "SERVICES::GITHUB",
+    GITLAB: "SERVICES::GITLAB"
+};
+
+export default SERVICES;
