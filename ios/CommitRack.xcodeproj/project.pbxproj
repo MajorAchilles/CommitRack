@@ -31,6 +31,7 @@
 		7A3DAF5F82AD48529522FCCB /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 654636C98BA9462C870A77DB /* Octicons.ttf */; };
 		83415D24F97E4920A699FC42 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF36051CACFD4493862E9CD7 /* SimpleLineIcons.ttf */; };
 		D43B933C562F4D3C99D18848 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69E5D806FDBB48ACB381253A /* Zocial.ttf */; };
+		DF4C91C5E6914F62ADFD00FE /* Comfortaa.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B947FAAFC18F4DCD97621472 /* Comfortaa.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		654636C98BA9462C870A77DB /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../assets/fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		EF36051CACFD4493862E9CD7 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../assets/fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		69E5D806FDBB48ACB381253A /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../assets/fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B947FAAFC18F4DCD97621472 /* Comfortaa.ttf */ = {isa = PBXFileReference; name = "Comfortaa.ttf"; path = "../assets/fonts/Comfortaa.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 				654636C98BA9462C870A77DB /* Octicons.ttf */,
 				EF36051CACFD4493862E9CD7 /* SimpleLineIcons.ttf */,
 				69E5D806FDBB48ACB381253A /* Zocial.ttf */,
+				B947FAAFC18F4DCD97621472 /* Comfortaa.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				7A3DAF5F82AD48529522FCCB /* Octicons.ttf in Resources */,
 				83415D24F97E4920A699FC42 /* SimpleLineIcons.ttf in Resources */,
 				D43B933C562F4D3C99D18848 /* Zocial.ttf in Resources */,
+				DF4C91C5E6914F62ADFD00FE /* Comfortaa.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
