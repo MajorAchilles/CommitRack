@@ -1,7 +1,11 @@
 import ICONS from "./Icons";
+import COLORS from "./Colors";
 import SERVICES from "./Services";
+import SIZES from "./Sizes";
 
-export default {
+export {
+    COLORS,
     ICONS,
-    SERVICES
+    SERVICES,
+    SIZES
 };
