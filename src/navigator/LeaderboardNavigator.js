@@ -6,12 +6,14 @@ import { createAppContainer } from "react-navigation";
 import TabHeader from "./component/TabHeader";
 import { ICONS, COLORS, FONTS } from "../common/enums";
 import { ROUTES } from "./enums";
-import { Text } from "../common/components";
+import Day from "../leaderboard/screens/Day";
+import Week from "../leaderboard/screens/Week";
+import Month from "../leaderboard/screens/Month";
 
 const routes = {
-    [ROUTES.DAY]: () => (<View><Text style={{ fontFamily: FONTS.COMFORTAA }}>DAY DATA</Text></View>),
-    [ROUTES.WEEK]: () => (<View><Text style={{ fontFamily: FONTS.COMFORTAA }}>WEEK DATA</Text></View>),
-    [ROUTES.MONTH]: () => (<View><Text style={{ fontFamily: FONTS.COMFORTAA }}>MONTH DATA</Text></View>),
+    [ROUTES.DAY]: Day,
+    [ROUTES.WEEK]: Week,
+    [ROUTES.MONTH]: Month,
 };
 
 const routeIconMap = {

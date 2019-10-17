@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { StatusBar } from "react-native";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./src/config/Store";
-import LeaderboardNavigator from "./src/navigator/LeaderboardNavigator";
+import LeaderboardNavigator from "./src/navigator/NavigatorWrapper";
 import { COLORS } from "./src/common/enums";
 
 const App = () => (
