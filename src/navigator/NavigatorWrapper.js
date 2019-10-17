@@ -1,10 +1,20 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { View } from "react-native";
-import LeaderboardNavigator from "./LeaderboardNavigator"
-import { COLORS } from "../common/enums";
-import styles from "./styles/NavigatorWrapperStyles";
+import { connect } from "react-redux";
 
-const NavigatorWrapper = () => {
+import LeaderboardNavigator from "./LeaderboardNavigator"
+import styles from "./styles/NavigatorWrapperStyles";
+import LeaderboardActions from "../leaderboard/redux/LeaderboardActions";
+
+const NavigatorWrapper = props => {
+    const {
+        loadMembers
+    } = props;
+
+    useEffect(() => {
+        loadMembers();
+    }, []);
+
     return (
         <View style={styles.appContainer}>
             <LeaderboardNavigator/>
@@ -12,4 +22,11 @@ const NavigatorWrapper = () => {
     )
 }
 
-export default NavigatorWrapper;
+const mapDispatchToProps = dispatch => ({
+    loadMembers: () => dispatch(LeaderboardActions.getMembers())
+});
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(NavigatorWrapper);

@@ -4,6 +4,4 @@ const NETWORK_STATES = {
     ERROR: "NetworkState::Error"
 };
 
-export default {
-    NETWORK_STATES
-};
+export default NETWORK_STATES;

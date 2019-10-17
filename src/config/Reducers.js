@@ -3,6 +3,6 @@ import settingsReducer from "../settings/redux/SettingsReducer";
 import leaderboardReducer from "../leaderboard/redux/LeaderboardReducer";
 
 export default combineReducers({
-    settingsReducer,
-    leaderboardReducer
+    settings: settingsReducer,
+    leaderboard: leaderboardReducer
 });

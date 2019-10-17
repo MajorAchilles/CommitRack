@@ -6,7 +6,9 @@ const LeaderboardActionTypes = {
     CLEAR_ERROR_MESSAGE: "Leaderboad::ClearErrorMessage",
     LOAD_DAY_RANKINGS: "Leaderboard::DayRankingsLoaded",
     LOAD_WEEK_RANKINGS: "Leaderboard::WeekRankingsLoaded",
-    LOAD_MONTH_RANKINGS: "Leaderboard::MonthRankingsLoaded"
+    LOAD_MONTH_RANKINGS: "Leaderboard::MonthRankingsLoaded",
+    LOAD_MEMBERS: "Leaderboard::LoadMembers",
+    LOAD_COMMIT_DATA: "Leaderboard::LoadCommitData",
 };
 
 export default LeaderboardActionTypes;
