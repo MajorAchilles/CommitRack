@@ -1,5 +1,7 @@
 import API from "./API";
+import Date from "./Date";
 
 export default {
-    API
+    API,
+    Date
 };

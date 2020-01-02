@@ -1,21 +1,24 @@
-const get = (url, headers = {}) => fetch(
-    url,
-    {
-        method: "GET",
-        headers
-    }
-).then(response => response.json());
+import moment from "moment";
+import { DATE_FORMATS } from "../enums";
 
-const post = (url, requestBody, headers) => fetch(
-    url,
-    {
-        method: "POST",
-        headers,
-        body: JSON.stringify(requestBody)
-    }
-);
+const getDayInterval = () => ({
+    after: moment().subtract(1, "day").format(DATE_FORMATS.YEAR_MONTH_DAY),
+    before: moment().add(1, "day").format(DATE_FORMATS.YEAR_MONTH_DAY)
+});
+
+const getWeekInterval = () => ({
+    after: moment().subtract(1, "week").subtract(1, "day").format(DATE_FORMATS.YEAR_MONTH_DAY),
+    before: moment().add(1, "day").format(DATE_FORMATS.YEAR_MONTH_DAY)
+});
+
+const getMonthInterval = () => ({
+    after: moment().subtract(1,"months").subtract(1, "day").format(DATE_FORMATS.YEAR_MONTH_DAY),
+    before: moment().add(1,"day").format(DATE_FORMATS.YEAR_MONTH_DAY),
+});
+
 
 export default {
-    get,
-    post
+    getDayInterval,
+    getWeekInterval,
+    getMonthInterval
 };

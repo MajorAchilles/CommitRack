@@ -8,6 +8,9 @@ const initialState = {
     weekRankings: [],
     monthRankings: [],
     errorMessage: "",
+    dayLoaded: false,
+    weekLoaded: false,
+    monthLoaded: false,
     networkStatus: NETWORK_STATES.READY
 };
 
@@ -33,7 +36,28 @@ const leaderboardReducer = (state = initialState, action) => {
         case LeaderboardActionTypes.LOAD_MEMBERS: 
             return {
                 ...state,
-                groupMembers: action.payload
+                groupMembers: action.payload,
+                dayLoaded: false,
+                weekLoaded: false,
+                monthLoaded: false
+            };
+        case LeaderboardActionTypes.LOAD_DAY_RANKINGS:
+            return {
+                ...state,
+                dayRankings: action.payload,
+                dayLoaded: true
+            };
+        case LeaderboardActionTypes.LOAD_WEEK_RANKINGS:
+            return {
+                ...state,
+                weekRankings: action.payload,
+                weekLoaded: true
+            };
+        case LeaderboardActionTypes.LOAD_MONTH_RANKINGS:
+            return {
+                ...state,
+                monthRankings: action.payload,
+                monthLoaded: true
             };
         default:
             return state;
