@@ -60,3 +60,5 @@ buck-out/
 
 accessToken.json
 src/common/enums/Config.js
+package-lock.json
+yarn.lock

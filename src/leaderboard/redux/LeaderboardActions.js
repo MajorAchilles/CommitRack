@@ -33,7 +33,7 @@ const LeaderboardActions = {
 
         dispatch(LeaderboardActions.startNetworkFetch());
         Promise.all(
-            groupMembers.map(member => get(URLS.USER_COMMIT_DATA(member.username)))
+            groupMembers.map(member => API.get(URLS.USER_COMMIT_DATA(member.username), headers))
         )
             .then(commitLists => {
                 const commitsByUsers = commitLists.map(
