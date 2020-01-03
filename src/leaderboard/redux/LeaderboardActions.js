@@ -13,7 +13,7 @@ const LeaderboardActions = {
 
     loadMembers: members => dispatch => dispatch({ type: LeaderboardActionTypes.LOAD_MEMBERS, payload: members }),
 
-    // loadCommitData: commits => dispatch => dispatch({ type: LeaderboardActionTypes.LOAD_COMMIT_DATA, payload: commits }),
+    loadCommitData: commits => dispatch => dispatch({ type: LeaderboardActionTypes.LOAD_COMMIT_DATA, payload: commits }),
 
     loadCommitDataForDay: commits => dispatch => dispatch({ type: LeaderboardActionTypes.LOAD_DAY_RANKINGS, payload: commits }),
 
@@ -27,75 +27,13 @@ const LeaderboardActions = {
             const members = await API.get(URLS.GET_MEMBERS, headers);
             dispatch(LeaderboardActions.endNetworkFetch());
             dispatch(LeaderboardActions.loadMembers(members));
-            dispatch(LeaderboardActions.getMemberCommitsForDay());
-            dispatch(LeaderboardActions.getMemberCommitsForWeek());
-            dispatch(LeaderboardActions.getMemberCommitsForMonth());
+            dispatch(LeaderboardActions.getMemberCommits());
         } catch {
             dispatch(LeaderboardActions.failNetworkFetch());
         }
     },
 
-    getMemberCommitsForDay: () => async (dispatch, getState) => {
-        const { 
-            leaderboard: { groupMembers }
-        } = getState();
-
-        dispatch(LeaderboardActions.startNetworkFetch());
-        const interval = Date.getDayInterval();
-
-        Promise.all(
-            groupMembers.map(member => {
-                console.log(URLS.USER_COMMIT_DATA(member.id, interval.after, interval.before));
-                return API.get(URLS.USER_COMMIT_DATA(member.id, interval.after, interval.before), headers);
-            })
-        )
-            .then(commitLists => {
-                const commitsByUsers = commitLists.map(
-                    (commitList, index) => ({
-                        userId: groupMembers[index].id,
-                        name: groupMembers[index].name,
-                        commits: commitList.error ? [] : commitList,
-                        count: commitList.error ? 0 : commitList.length
-                    })
-                );
-
-                dispatch(LeaderboardActions.loadCommitDataForDay(commitsByUsers));
-                dispatch(LeaderboardActions.endNetworkFetch());
-            })
-            .catch((error) => dispatch(LeaderboardActions.failNetworkFetch(error.toString())));
-    },
-
-    getMemberCommitsForWeek: () => async (dispatch, getState) => {
-        const { 
-            leaderboard: { groupMembers }
-        } = getState();
-
-        dispatch(LeaderboardActions.startNetworkFetch());
-        const interval = Date.getWeekInterval();
-
-        Promise.all(
-            groupMembers.map(member => {
-                console.log(URLS.USER_COMMIT_DATA(member.id, interval.after, interval.before));
-                return API.get(URLS.USER_COMMIT_DATA(member.id, interval.after, interval.before), headers);
-            })
-        )
-            .then(commitLists => {
-                const commitsByUsers = commitLists.map(
-                    (commitList, index) => ({
-                        userId: groupMembers[index].id,
-                        name: groupMembers[index].name,
-                        commits: commitList.error ? [] : commitList,
-                        count: commitList.error ? 0 : commitList.length
-                    })
-                );
-
-                dispatch(LeaderboardActions.loadCommitDataForWeek(commitsByUsers));
-                dispatch(LeaderboardActions.endNetworkFetch());
-            })
-            .catch((error) => dispatch(LeaderboardActions.failNetworkFetch(error.toString())));
-    },
-
-    getMemberCommitsForMonth: () => async (dispatch, getState) => {
+    getMemberCommits: () => async (dispatch, getState) => {
         const { 
             leaderboard: { groupMembers }
         } = getState();
@@ -119,10 +57,24 @@ const LeaderboardActions = {
                     })
                 );
 
-                dispatch(LeaderboardActions.loadCommitDataForMonth(commitsByUsers));
+                dispatch(LeaderboardActions.loadCommitData(commitsByUsers));
+                dispatch(LeaderboardActions.processDayData(commitsByUsers));
+                dispatch(LeaderboardActions.processWeekData(commitsByUsers));
+                dispatch(LeaderboardActions.processMonthData(commitsByUsers));
                 dispatch(LeaderboardActions.endNetworkFetch());
             })
             .catch((error) => dispatch(LeaderboardActions.failNetworkFetch(error.toString())));
+    },
+
+    processDayData: allCommits => async dispatch => {
+
+    },
+
+    processWeekData: allCommits => async dispatch => {
+    },
+
+    processMonthData: commitAndUserData => async dispatch => {
+        dispatch(LeaderboardActions.loadCommitDataForMonth(commitAndUserData));
     }
 };
 
